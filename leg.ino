@@ -90,6 +90,6 @@ ms (8000).*/
 void loop(){
 //  jump();
   // ankle_roll();
- knee_bend();
- // toe_bend();
+// knee_bend();
+  toe_bend();
 }
