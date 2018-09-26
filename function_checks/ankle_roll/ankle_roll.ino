@@ -9,19 +9,20 @@ MicroMaestro maestro(maestroSerial);
 void setup()
 {
   Serial.begin(9600);
+  while (!Serial); 
   maestroSerial.begin(9600);
 }
 
 
 void loop(){
   Serial.println("wtf");
-  for(int i = 4000; i < 5000; i += 20){
-    maestro.setTarget(0, i);
+  for(int i = LIMIT_ANKLE_ROLL_LEFT; i < LIMIT_ANKLE_ROLL_RIGHT; i += 20){
+    maestro.setTarget(CHANNEL_ANKLE_ROLL, i);
     delay(15);
   }
   Serial.println("wtf2");
-  for(int i = 5000; i > 4000; i -= 20){
-    maestro.setTarget(0,i);
+  for(int i = LIMIT_ANKLE_ROLL_RIGHT; i > LIMIT_ANKLE_ROLL_LEFT; i -= 20){
+    maestro.setTarget(CHANNEL_ANKLE_ROLL,i);
     delay(15);
   }
 }
